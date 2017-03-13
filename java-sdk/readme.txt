@@ -1,39 +1,45 @@
-SDKÊ¹ÓÃµÄÒ»Ğ©ËµÃ÷£¬
+SDKä½¿ç”¨çš„ä¸€äº›è¯´æ˜ï¼Œ
 Some instructions for using SDK,
 
-Õâ¸öSDKÀïµÄÍøÂçÇëÇóÊÇÓÃJAVAµÄAPI"HttpsURLConnection"Ğ´µÄ£¬×Ô¼º·â×°µÄÒ»Ğ©ÍøÂçÇëÇó£¬ËùÒÔÇ¿ÁÒ½¨ÒéÊ¹ÓÃµÚÈı·½¿ò¼ÜÀ´µ÷ÓÃÎÒÃÇµÄAPI
+è¿™ä¸ªSDKé‡Œçš„ç½‘ç»œè¯·æ±‚æ˜¯ç”¨JAVAçš„API"HttpsURLConnection"å†™çš„ï¼Œè‡ªå·±å°è£…çš„ä¸€äº›ç½‘ç»œè¯·æ±‚ï¼Œæ‰€ä»¥å¼ºçƒˆå»ºè®®ä½¿ç”¨ç¬¬ä¸‰æ–¹æ¡†æ¶æ¥è°ƒç”¨æˆ‘ä»¬çš„API
 The network request in this SDK is written with JAVA API "HttpsURLConnection", some of its own network request package, it is recommended to use the third party framework to call our API
 
 
-SDKÀïµÄ¼¸¸öÀà
+SDKé‡Œçš„å‡ ä¸ªç±»
 Several classes in SDK
 
-Response ÕâÊÇÒ»¸öÍøÂçÇëÇóµÄ½á¹ûÀà£¬ÍøÂçÇëÇóµÄ½á¹û·â×°ÔÚÀïÃæ£¬°üÀ¨·µ»ØµÄ×´Ì¬ÂëºÍ·µ»ØµÄĞÅÏ¢
+Response è¿™æ˜¯ä¸€ä¸ªç½‘ç»œè¯·æ±‚çš„ç»“æœç±»ï¼Œç½‘ç»œè¯·æ±‚çš„ç»“æœå°è£…åœ¨é‡Œé¢ï¼ŒåŒ…æ‹¬è¿”å›çš„çŠ¶æ€ç å’Œè¿”å›çš„ä¿¡æ¯
 Response: This is a result of a class of network requests, the results of the network package is included in the request, including the return of the state code stuta and return information content
 
 
-CommonOperate ·â×°ÁËdetect£¬compare£¬searchÕâÈı¸ö½Ó¿Ú
+CommonOperate å°è£…äº†detectï¼Œcompareï¼Œsearchè¿™ä¸‰ä¸ªæ¥å£
 CommonOperate: encapsulates the detect, compare, search these three interfaces
 
 
-FaceSetOperate FaceSetÏà¹ØµÄ²Ù×÷
+FaceSetOperate FaceSetç›¸å…³çš„æ“ä½œ
 FaceSetOperate:FaceSet related operations
 
 
-FaceOperate FaceÏà¹ØµÄ²Ù×÷
+FaceOperate Faceç›¸å…³çš„æ“ä½œ
 FaceOperate:Face related operations
 
-CardOperate ·â×°ÁËÖ¤¼şÊ¶±ğµÄ½Ó¿Ú£¬Ê¹ÓÃ¹ú¼Ê°æÇëºöÊÓÕâ¸öÀà
-CardOperate: interface for document identification£¬please ignore if you are use international version
+CardOperate å°è£…äº†è¯ä»¶è¯†åˆ«çš„æ¥å£ï¼Œä½¿ç”¨å›½é™…ç‰ˆè¯·å¿½è§†è¿™ä¸ªç±»
+CardOperate: interface for document identificationï¼Œplease ignore if you are use international version
 
-ImageOperate Í¼Æ¬Ê¶±ğ½Ó¿ÚµÄ·â×°£¬Ê¹ÓÃ¹ú¼Ê°æÇëºöÊÓÕâ¸öÀà
-ImageOperate: image recognition interface package£¬please ignore if you are use international version
+ImageOperate å›¾ç‰‡è¯†åˆ«æ¥å£çš„å°è£…ï¼Œä½¿ç”¨å›½é™…ç‰ˆè¯·å¿½è§†è¿™ä¸ªç±»
+ImageOperate: image recognition interface packageï¼Œplease ignore if you are use international version
 
-HttpRequest ÕâÀïÃæ·â×°ÁËÍøÂçÇëÇó
+HttpRequest è¿™é‡Œé¢å°è£…äº†ç½‘ç»œè¯·æ±‚
 HttpRequest: This is a network request
 
-Key ÕâÀïÃæ¶¨ÒåÁËÒ»Ğ©×Ö¶Î
+Key è¿™é‡Œé¢å®šä¹‰äº†ä¸€äº›å­—æ®µ
 Key: here are some fields defined
 
-¾ßÌåµÄ²ÎÊıËµÃ÷¼°·½·¨¹¦ÄÜÇë¿´Ã¿¸ö·½·¨µÄ×¢ÊÍ
+å…·ä½“çš„å‚æ•°è¯´æ˜åŠæ–¹æ³•åŠŸèƒ½è¯·çœ‹æ¯ä¸ªæ–¹æ³•çš„æ³¨é‡Š
 Specific parameters and methods to see the function of each method notes
+
+Example for using detectAPI:
+Response result = httpRequest.detectByte(array,1,"");
+String str = new String(result.getContent());
+JSONObject resultJson = new JSONObject(str);
+Then you can get the 83 landmark point.
